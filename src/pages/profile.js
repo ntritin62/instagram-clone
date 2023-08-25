@@ -21,7 +21,7 @@ export default function Profile() {
     }
 
     checkUserExists();
-  }, [username, history]);
+  }, [username, navigate]);
 
   return user?.username ? (
     <div className="bg-gray-background">
