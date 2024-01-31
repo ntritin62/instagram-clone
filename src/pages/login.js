@@ -13,14 +13,17 @@ export default function Login() {
   const handleLogin = async (event) => {
     event.preventDefault();
 
-    try {
-      await firebase.auth().signInWithEmailAndPassword(emailAddress, password);
-      navigate(ROUTES.DASHBOARD);
-    } catch (error) {
-      setEmailAddress('');
-      setPassword('');
-      setError(error.message);
-    }
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(emailAddress, password)
+      .then(() => {
+        navigate(ROUTES.DASHBOARD);
+      })
+      .catch((error) => {
+        setEmailAddress('');
+        setPassword('');
+        setError(error.message);
+      });
   };
   useEffect(() => {
     document.title = 'Login-Instagram';
