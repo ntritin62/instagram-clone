@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
+import * as ROUTES from '../../constants/routes';
 
 const User = ({ username, fullName }) => {
   return !username || !fullName ? (
@@ -16,6 +17,9 @@ const User = ({ username, fullName }) => {
           src={`/images/avatars/${username}.jpg`}
           alt=""
           className="rounded-full w-16 h-16 flex mr-4 object-cover "
+          onError={(e) => {
+            e.target.src = ROUTES.DEFAULT_IMAGE_PATH;
+          }}
         />
       </div>
       <div className="col-span-3">

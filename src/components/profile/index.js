@@ -8,6 +8,7 @@ import {
 } from '../../services/firebase';
 
 export default function Profile({ user }) {
+  console.log(user);
   const reducer = (state, newState) => ({ ...state, ...newState });
   const initialState = {
     profile: {},

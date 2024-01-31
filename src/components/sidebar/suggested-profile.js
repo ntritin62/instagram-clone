@@ -5,6 +5,7 @@ import {
   updateLoggedInUserFollowing,
   updateFollowedUserFollowers,
 } from '../../services/firebase';
+import * as ROUTES from '../../constants/routes';
 
 export default function SuggestedProfile({
   profileDocId,
@@ -27,6 +28,9 @@ export default function SuggestedProfile({
           src={`/images/avatars/${username}.jpg`}
           alt=""
           className="rounded-full w-8 h-8 flex mr-3 object-cover"
+          onError={(e) => {
+            e.target.src = ROUTES.DEFAULT_IMAGE_PATH;
+          }}
         />
         <Link to={`/p/${username}`}>
           <p className="font-bold text-sm">{username}</p>

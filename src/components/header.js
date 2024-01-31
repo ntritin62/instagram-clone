@@ -68,6 +68,9 @@ export default function Header() {
                       src={`/images/avatars/${user.displayName}.jpg`}
                       alt=""
                       className="rounded-full h-8 w-8 flex object-cover object-top"
+                      onError={(e) => {
+                        e.target.src = ROUTES.DEFAULT_IMAGE_PATH;
+                      }}
                     />
                   </Link>
                 </div>
